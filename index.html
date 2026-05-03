@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MM Mobilar | Móveis Planejados Premium</title>
+    
+    <!-- Importando fontes do Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* VARIÁVEIS DE CORES */
+        :root {
+            --marrom-escuro: #3B2A1E;
+            --dourado: #C8A46B;
+            --preto-fosco: #121212;
+            --bege-claro: #EDE3D4;
+        }
+
+        /* RESET BÁSICO */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--preto-fosco);
+            color: var(--bege-claro);
+            overflow-x: hidden;
+            padding-top: 80px; 
+        }
+
+        h1, h2, h3 {
+            font-family: 'Montserrat', sans-serif;
+            text-transform: uppercase;
+            color: var(--dourado);
+            letter-spacing: 1px;
+        }
+
+        /* --- CABEÇALHO --- */
+        header {
+            background-color: rgba(18, 18, 18, 0.98); 
+            padding: 10px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(200, 164, 107, 0.3);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            height: 80px;
+        }
+
+        .logo-img {
+            height: 60px;
+            width: auto;
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(200, 164, 107, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .logo-img:hover {
+            transform: scale(1.05);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        nav ul li a {
+            color: var(--bege-claro);
+            text-decoration: none;
+            font-weight: 400;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: var(--dourado);
+        }
+
+        /* --- SEÇÃO DA CAPA (BANNER) --- */
+        .banner-container {
+            width: 100%;
+            background-color: #000;
+            display: flex;
+            justify-content: center;
+        }
+
+        .imagem-capa {
+            width: 100%;
+            max-width: 1920px;
+            height: auto;
+            display: block;
+        }
+
+        /* --- FAIXA DE AÇÃO (CHAMADA PARA ORÇAMENTO) --- */
+        .faixa-acao {
+            background-color: var(--marrom-escuro);
+            padding: 30px 20px;
+            text-align: center;
+            border-bottom: 2px solid var(--dourado);
+            border-top: 1px solid rgba(200, 164, 107, 0.2);
+        }
+
+        .btn {
+            background-color: transparent;
+            color: var(--dourado);
+            padding: 15px 40px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            border: 2px solid var(--dourado);
+            border-radius: 2px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: all 0.4s ease;
+            display: inline-block;
+        }
+
+        .btn:hover {
+            background-color: var(--dourado);
+            color: var(--preto-fosco);
+            box-shadow: 0 0 20px rgba(200, 164, 107, 0.4);
+            transform: translateY(-3px);
+        }
+
+        /* --- SEÇÃO DIFERENCIAIS --- */
+        .diferenciais {
+            padding: 80px 20px;
+            text-align: center;
+            background-color: var(--preto-fosco);
+        }
+
+        .diferenciais h2 {
+            margin-bottom: 60px;
+            font-size: 2.2rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .diferenciais h2::after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 3px;
+            background-color: var(--dourado);
+            bottom: -10px;
+            left: 25%;
+        }
+
+        .cards {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background-color: var(--marrom-escuro);
+            padding: 40px 30px;
+            border-radius: 4px;
+            width: 320px;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.8), 0 0 15px rgba(200, 164, 107, 0.2);
+            border-color: rgba(200, 164, 107, 0.5);
+        }
+
+        .card h3 { margin-bottom: 20px; font-size: 1.5rem; }
+        .card p { color: #ccc; line-height: 1.6; }
+
+        /* --- RODAPÉ --- */
+        footer {
+            background-color: #0a0a0a;
+            text-align: center;
+            padding: 60px 20px;
+            border-top: 1px solid rgba(200, 164, 107, 0.2);
+        }
+
+        footer h2 { font-size: 1.8rem; margin-bottom: 20px; }
+        footer p { margin-bottom: 10px; font-size: 1rem; color: #888; }
+        
+        /* Nova estilização para o link do WhatsApp no rodapé */
+        .link-whatsapp {
+            color: var(--dourado);
+            font-weight: bold;
+            text-decoration: none; /* Tira o sublinhado padrão dos links */
+            transition: color 0.3s ease;
+        }
+
+        .link-whatsapp:hover {
+            color: #fff; /* Fica branco ao passar o mouse para dar destaque */
+        }
+
+        /* --- RESPONSIVIDADE --- */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                height: auto;
+                padding: 15px 20px;
+                gap: 15px;
+            }
+
+            body {
+                padding-top: 130px; 
+            }
+
+            .logo-img {
+                height: 50px; 
+            }
+
+            .cards { gap: 20px; }
+            .card { width: 100%; max-width: 400px; }
+        }
+
+        @media (max-width: 480px) {
+            nav ul {
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="#inicio">
+            <img src="icone mm.png" alt="Logo MM Mobilar" class="logo-img">
+        </a>
+        <nav>
+            <ul>
+                <li><a href="#inicio">Início</a></li>
+                <li><a href="#diferenciais">A Marca</a></li>
+                <li><a href="#contato">Orçamento</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="inicio" class="banner-container">
+        <img src="cabaçario.png" alt="MM Mobilar - Projetos sob medida com qualidade e design" class="imagem-capa">
+    </section>
+
+    <section class="faixa-acao">
+        <!-- ATUALIZAÇÃO: Link direto para o WhatsApp com target="_blank" para abrir em nova aba -->
+        <a href="https://wa.me/554196304429" target="_blank" class="btn">Solicite uma Experiência</a>
+    </section>
+
+    <section id="diferenciais" class="diferenciais">
+        <h2>A Assinatura MM</h2>
+        <div class="cards">
+            <div class="card">
+                <h3>Praticidade Única</h3>
+                <p>Nossos projetos são engenharia aplicada à sua rotina. Desenhados milímetro a milímetro para facilitar o seu dia a dia.</p>
+            </div>
+            <div class="card">
+                <h3>Conforto Absoluto</h3>
+                <p>Transformamos paredes e espaços vazios em refúgios acolhedores, combinando texturas premium e iluminação planejada.</p>
+            </div>
+            <div class="card">
+                <h3>Status e Precisão</h3>
+                <p>Acabamentos impecáveis que comunicam valor. Sua casa merece o nível de sofisticação que só a MM pode entregar.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contato">
+        <h2>Onde cada detalhe importa.</h2>
+        <p>Inicie seu projeto com quem entende de transformação.</p>
+        <br>
+        <!-- ATUALIZAÇÃO: Número de telefone transformado em link e com o contato correto -->
+        <p>WhatsApp: <a href="https://wa.me/554196304429" target="_blank" class="link-whatsapp">(41) 9630-4429</a></p>
+        <p>Instagram: <span style="color: var(--dourado); font-weight: bold;">@mm.mobilar</span></p>
+    </footer>
+
+</body>
+</html>
